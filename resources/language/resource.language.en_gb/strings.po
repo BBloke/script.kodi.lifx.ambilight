@@ -1,0 +1,350 @@
+# Kodi Media Center language file
+# Addon Name: MLB.TV
+# Addon id: plugin.video.mlbtv
+# Addon Provider: eracknaphobia
+msgid ""
+msgstr ""
+"Project-Id-Version: Kodi Addons\n"
+"Report-Msgid-Bugs-To: alanwww1@xbmc.org\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Kodi Translation Team\n"
+"Language-Team: English (http://www.transifex.com/projects/p/xbmc-addons/language/en/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+    <!-- Advanced -->
+
+</strings>
+
+
+msgctxt "#1000"
+msgid "General"
+msgstr ""
+
+msgctxt "#1100"
+msgid "Light Groups"
+msgstr ""
+
+msgctxt "#1120"
+msgid "Setup Theater Lights"
+msgstr ""
+
+msgctxt "#1130"
+msgid "Setup Ambilight Lights"
+msgstr ""
+
+msgctxt "#1140"
+msgid "Setup Static Lights"
+msgstr ""
+
+msgctxt "#1210"
+msgid "Discover Lifx Devices"
+msgstr ""
+
+msgctxt "#1400"
+msgid "WARNING: RESET ALL SETTINGS"
+msgstr ""
+
+msgctxt "#1410"
+msgid "Reset All settings (requires disable/re-enable)"
+msgstr ""
+
+msgctxt "#2000"
+msgid "Theater"
+msgstr ""
+
+msgctxt "#2100"
+msgid "Global Settings"
+msgstr ""
+
+msgctxt "#2105"
+msgid "Setup Theater Subgroup"
+msgstr ""
+
+msgctxt "#2110"
+msgid "Dim Time"
+msgstr ""
+
+msgctxt "#2120"
+msgid "Proportional Dim Time"
+msgstr ""
+
+msgctxt "#2130"
+msgid "Example: Take 70% of transition time dimming 70%"
+msgstr ""
+
+msgctxt "#2200"
+msgid "Playback Start (or Resume)"
+msgstr ""
+
+msgctxt "#2206"
+msgid "Override Hue"
+msgstr ""
+
+msgctxt "#2207"
+msgid "Choose Hue"
+msgstr ""
+
+msgctxt "#2208"
+msgid "Override Saturation"
+msgstr ""
+
+msgctxt "#2209"
+msgid "Choose Saturation"
+msgstr ""
+
+msgctxt "#2210"
+msgid "Override Brightness (default 30)"
+msgstr ""
+
+msgctxt "#2221"
+msgid "Override Kelvin"
+msgstr ""
+
+msgctxt "#2222"
+msgid "Choose Kelvin"
+msgstr ""
+
+msgctxt "#2300"
+msgid "Playback Pause"
+msgstr ""
+
+msgctxt "#2305"
+msgid "Only Undim subgroup"
+msgstr ""
+
+msgctxt "#2306"
+msgid "Override Hue"
+msgstr ""
+
+msgctxt "#2307"
+msgid "Choose Hue"
+msgstr ""
+
+msgctxt "#2308"
+msgid "Override Saturation"
+msgstr ""
+
+msgctxt "#2309"
+msgid "Choose Saturation"
+msgstr ""
+
+msgctxt "#2310"
+msgid "Override Brightness (default initial)"
+msgstr ""
+
+msgctxt "#2320"
+msgid "Choose Brightness"
+msgstr ""
+
+msgctxt "#2321"
+msgid "Override Kelvin"
+msgstr ""
+
+msgctxt "#2322"
+msgid "Chose Kelvin"
+msgstr ""
+
+msgctxt "#2400"
+msgid "Playback Stop"
+msgstr ""
+
+msgctxt "#2406"
+msgid "Override Hue"
+msgstr ""
+
+msgctxt "#2407"
+msgid "Choose Hue"
+msgstr ""
+
+msgctxt "#2408"
+msgid "Override Saturation"
+msgstr ""
+
+msgctxt "#2409"
+msgid "Choose Saturation"
+msgstr ""
+
+msgctxt "#2410"
+msgid "Override Brightness (default initial)"
+msgstr ""
+
+msgctxt "#2420"
+msgid "Choose Brightness"
+msgstr ""
+
+msgctxt "#2421"
+msgid "Override Kelvin"
+msgstr ""
+
+msgctxt "#2422"
+msgid "Choose Kelvin"
+msgstr ""
+
+msgctxt "#3000"
+msgid "Ambilight"
+msgstr ""
+
+msgctxt "#3100"
+msgid "Global Settings"
+msgstr ""
+
+msgctxt "#3110"
+msgid "Minimum Brightness"
+msgstr ""
+
+msgctxt "#3120"
+msgid "Maximum Brightness"
+msgstr ""
+
+msgctxt "#3130"
+msgid "Enable Dimming"
+msgstr ""
+
+msgctxt "#3200"
+msgid "Thresholds"
+msgstr ""
+
+msgctxt "#3210"
+msgid "Brightness Value"
+msgstr ""
+
+msgctxt "#3220"
+msgid "Saturation"
+msgstr ""
+
+msgctxt "#3300"
+msgid "Color"
+msgstr ""
+
+msgctxt "#3301"
+msgid "Different Colors for different lights"
+msgstr ""
+
+msgctxt "#3310"
+msgid "Bias"
+msgstr ""
+
+msgctxt "#3320"
+msgid "Sensitivity: 6=variety with >1 light, 36=accuracy (often more similar colors)"
+msgstr ""
+
+msgctxt "#3400"
+msgid "Playback Start (or resume)"
+msgstr ""
+
+msgctxt "#3420"
+msgid "Override Brightness (default 30)"
+msgstr ""
+
+msgctxt "#3430"
+msgid "Choose Brightness"
+msgstr ""
+
+msgctxt "#3500"
+msgid "Playback Pause"
+msgstr ""
+
+msgctxt "#3510"
+msgid "Override Brightness (default initial)"
+msgstr ""
+
+msgctxt "#3520"
+msgid "Choose Brightness"
+msgstr ""
+
+msgctxt "#3600"
+msgid "Playback Stop"
+msgstr ""
+
+msgctxt "#Override Brightness (default initial)"
+msgid "Live"
+msgstr ""
+
+msgctxt "#3610"
+msgid "Override Brightness (default initial)"
+msgstr ""
+
+msgctxt "#3620"
+msgid "Choose Brightness"
+msgstr ""
+
+msgctxt "#4000"
+msgid "Static"
+msgstr ""
+
+msgctxt "#4100"
+msgid "Playback start (or resume)"
+msgstr ""
+
+msgctxt "#4105"
+msgid "Random Color"
+msgstr ""
+
+msgctxt "#4110"
+msgid "Override Hue (default initial)"
+msgstr ""
+
+msgctxt "#4120"
+msgid "Choose Hue"
+msgstr ""
+
+msgctxt "#4130"
+msgid "Override Saturation (default initial)"
+msgstr ""
+
+msgctxt "#4140"
+msgid "Choose Saturation"
+msgstr ""
+
+msgctxt "#4150"
+msgid "Override Brightness (default 100)"
+msgstr ""
+
+msgctxt "#4160"
+msgid "Choose Brightness"
+msgstr ""
+
+msgctxt "#4165"
+msgid "Override Kelvin"
+msgstr ""
+
+msgctxt "#4166"
+msgid "Choose Kelvin"
+msgstr ""
+
+msgctxt "#5000"
+msgid "Advanced"
+msgstr ""
+
+msgctxt "#5100"
+msgid "Misc. Settings"
+msgstr ""
+
+msgctxt "#5110"
+msgid "Enable initial flash"
+msgstr ""
+
+msgctxt "#5120"
+msgid "Disable for short movies"
+msgstr ""
+
+msgctxt "#5130"
+msgid "Short Movie Threshold (seconds)"
+msgstr ""
+
+msgctxt "#5140"
+msgid "Force Light(s) on (even if off)"
+msgstr ""
+
+msgctxt "#5150"
+msgid "Startup Delay"
+msgstr ""
+
+msgctxt "#5160"
+msgid "Report Metrics"
+msgstr ""

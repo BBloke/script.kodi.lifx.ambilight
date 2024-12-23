@@ -6,14 +6,14 @@ import xbmc
 from lifxlan import *
 
 from tools import xbmclog
-from ga_client import GoogleAnalytics
+#from ga_client import GoogleAnalytics
 
-ga = GoogleAnalytics()
+#ga = GoogleAnalytics()
 
 class Light(object):
 
     def __init__(self, light):
-        global ga
+        #global ga
         xbmclog("Adding Light <{}>".format(light.mac_addr))
 
         self.light = light
@@ -43,9 +43,9 @@ class Light(object):
             self.color = self.light.get_color()
 
         except WorkflowException as error:
-            errStrings = ga.formatException()
-            ga.sendExceptionData(errStrings[0])
-            ga.sendEventData("Exception", errStrings[0], errStrings[1])
+            #errStrings = ga.formatException()
+            #ga.sendExceptionData(errStrings[0])
+            #ga.sendEventData("Exception", errStrings[0], errStrings[1])
             xbmclog("{}.__init__({}) - Exception - {}".format(self.__class__.__name__, self.name, str(error)))
 
         self.init_hue = self.color[0]
@@ -144,9 +144,9 @@ class Light(object):
             try:
                 self.light.set_power(state['on'], rapid=False)
             except WorkflowException as error:
-                errStrings = ga.formatException()
-                ga.sendExceptionData(errStrings[0])
-                ga.sendEventData("Exception", errStrings[0], errStrings[1])
+                #errStrings = ga.formatException()
+                #ga.sendExceptionData(errStrings[0])
+                #ga.sendEventData("Exception", errStrings[0], errStrings[1])
                 xbmclog("set_state() - set_power({}) - Exception - {}".format(state['on'], str(error)))
 
         # Set color state
@@ -163,9 +163,9 @@ class Light(object):
             #   Lifxlan duration is in miliseconds, for hue it's multiple of 100ms - https://developers.meethue.com/documentation/lights-api#16_set_light_state
             self.light.set_color(color, state['transitiontime']*100, rapid=state['rapid'])
         except WorkflowException as error:
-            errStrings = ga.formatException()
-            ga.sendExceptionData(errStrings[0])
-            ga.sendEventData("Exception", errStrings[0], errStrings[1])
+            #errStrings = ga.formatException()
+            #ga.sendExceptionData(errStrings[0])
+            #ga.sendEventData("Exception", errStrings[0], errStrings[1])
             xbmclog("set_color() - light={} - failed to set_color({}) - Exception - {}".format(self.name, color, str(error)))
 
     def restore_initial_state(self, transition_time=0):
@@ -194,16 +194,16 @@ class Light(object):
             s += indent + self.light.device_firmware_str(indent)
             s += indent + self.light.device_product_str(indent)
         except (KeyError, WorkflowException) as err:
-            errStrings = ga.formatException()
-            ga.sendExceptionData(errStrings[0])
-            ga.sendEventData("Exception", errStrings[0], errStrings[1])
+            #errStrings = ga.formatException()
+            #ga.sendExceptionData(errStrings[0])
+            #ga.sendEventData("Exception", errStrings[0], errStrings[1])
             xbmclog("{}.__repr__() - light={} - Exception - {}".format(self.__class__.__name__, self.name, str(err)))
         return s
 
 class Controller(object):
 
     def __init__(self, lights, settings):
-        global ga
+        #global ga
         self.lights = {}
 
         for light_id, lifx_light in lights.items():
@@ -211,9 +211,9 @@ class Controller(object):
                 new_light = Light(lifx_light)
                 self.lights[light_id] = new_light
             except WorkflowException as error:
-                errStrings = ga.formatException()
-                ga.sendExceptionData(errStrings[0])
-                ga.sendEventData("Exception", errStrings[0], errStrings[1])
+                #errStrings = ga.formatException()
+                #ga.sendExceptionData(errStrings[0])
+                #ga.sendEventData("Exception", errStrings[0], errStrings[1])
                 xbmclog("{}.__init__(lights={}) - Exception ({}) - {}".format(self.__class__.__name__, lights.keys(), light_id, str(error)))
 
         self.settings = settings

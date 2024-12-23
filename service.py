@@ -3,21 +3,23 @@ import traceback
 
 import xbmc
 import xbmcaddon
+import xbmcvfs
 
 __addon__ = xbmcaddon.Addon()
-__addondir__ = xbmc.translatePath(__addon__.getAddonInfo('profile'))
+__addondir__ = __addon__.getAddonInfo('profile')
 __cwd__ = __addon__.getAddonInfo('path')
-__resource__ = xbmc.translatePath(os.path.join(__cwd__, 'resources', 'lib')).decode('utf-8')
+__resource__ = os.path.join(__cwd__, 'resources', 'lib')
+sys.path.append (xbmcvfs.translatePath( os.path.join( os.getcwd(), 'resources', 'lib' ) ))
 
 sys.path.append(__resource__)
 
-from settings import Settings
-
-from service_entry import Service
+from resources.lib.service_entry import Service
 from tools import xbmclog
-from ga_client import GoogleAnalytics
+#from resources.lib.ga_client import GoogleAnalytics
 
-DELAY = int(Settings.getSetting('startup_delay') or 0)
+#DELAY = int(Settings.getSetting('startup_delay') or 0)
+
+DELAY = 0
 
 if __name__ == "__main__":
     xbmclog("======== STARTED ========")
@@ -33,12 +35,6 @@ if __name__ == "__main__":
             service.service_entry_point()
 
     except Exception as error:
-        if not (hasattr(error, 'quiet') and error.quiet):
-            ga = GoogleAnalytics()
-            errStrings = ga.formatException()
-            ga.sendExceptionData(errStrings[0])
-            ga.sendEventData("Crash", errStrings[0], errStrings[1])
-
         # Display the *original* exception
         traceback.print_exc()
 

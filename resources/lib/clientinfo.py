@@ -57,7 +57,7 @@ class ClientInfo(object):
 
     def get_device_id(self, reset=False):
 
-        emby_guid = xbmc.translatePath("special://temp/emby_guid").decode('utf-8')
+        emby_guid = xbmcvfs.translatePath("special://temp/emby_guid")
 
         if reset and xbmcvfs.exists(emby_guid):
             # Reset the file
@@ -67,9 +67,10 @@ class ClientInfo(object):
         client_id = guid.read()
         if not client_id:
             xbmclog("Generating a new guid...")
-            client_id = str("%012X" % uuid4())
+            #client_id = str("%012X" % uuid4())
+            client_id = 1
             guid = xbmcvfs.File(emby_guid, 'w')
-            guid.write(client_id)
+            #guid.write(client_id)
 
         guid.close()
 

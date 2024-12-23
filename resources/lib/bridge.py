@@ -4,12 +4,12 @@ import lights
 
 from lifxlan import *
 from tools import *
-from ga_client import GoogleAnalytics
+#from ga_client import GoogleAnalytics
 
 # TODO - clean up, remove bridge ip, user references
 
 lan = LifxLAN()
-ga = GoogleAnalytics()
+#ga = GoogleAnalytics()
 
 lights_cache = None
 
@@ -39,9 +39,9 @@ def get_lights(refresh=False):
             lights_cache = lan.get_lights()
             xbmclog("get_lights(refresh={}) - Found {} Lifx lights".format(refresh, str(len(lights_cache))))
         except WorkflowException as error:
-            errStrings = ga.formatException()
-            ga.sendExceptionData(errStrings[0])
-            ga.sendEventData("Exception", errStrings[0], errStrings[1])
+            #errStrings = ga.formatException()
+            #ga.sendExceptionData(errStrings[0])
+            #ga.sendEventData("Exception", errStrings[0], errStrings[1])
             xbmclog("get_lights(refresh={}) - Exception - {}".format(refresh,str(error)))
 
         if lights_cache != None and len(lights_cache) > 0:
@@ -55,9 +55,9 @@ def get_lights(refresh=False):
                     product = lifx_light.get_product()
                     product_name = lifx_light.get_product_name()
                 except WorkflowException as error:
-                    errStrings = ga.formatException()
-                    ga.sendExceptionData(errStrings[0])
-                    ga.sendEventData("Exception", errStrings[0], errStrings[1])
+                    #errStrings = ga.formatException()
+                    #ga.sendExceptionData(errStrings[0])
+                    #ga.sendEventData("Exception", errStrings[0], errStrings[1])
                     xbmclog("Exception - {}".format(str(error)))
 
                 product_str = "{}".format(product)
@@ -71,12 +71,11 @@ def get_lights(refresh=False):
             xbmclog("Product list: {}".format(products_list))
             for product, count in products_list.items():
                 # Collect metrics to help prioritize support for more device types
-                ga.sendEventData("Metrics", "Devices", product, count, 1)   # Category, Action, Label, Value, Non-interactive
+                #ga.sendEventData("Metrics", "Devices", product, count, 1)   # Category, Action, Label, Value, Non-interactive
+                xbmclog("Metrics")
 
         if lights_cache is not None:
             total_lights = len(lights_cache)
-        if sendMetrics:
-            ga.sendEventData("Metrics", "Devices", "Total", total_lights, 1)
     else:
         xbmclog("get_lights(refresh={}) - Returning {} cached Lifx lights".format(refresh, str(len(lights_cache))))
     return lights_cache if lights_cache else []
@@ -96,9 +95,9 @@ def get_lights_by_ids(light_ids=None):
                     xbmclog("get_lights_by_ids(light_ids={}) - Adding {}".format(light_ids, light_id))
                     found[light_id] = lifx_light
                 except WorkflowException as error:
-                    errStrings = ga.formatException()
-                    ga.sendExceptionData(errStrings[0])
-                    ga.sendEventData("Exception", errStrings[0], errStrings[1])
+                    #errStrings = ga.formatException()
+                    #ga.sendExceptionData(errStrings[0])
+                    #ga.sendEventData("Exception", errStrings[0], errStrings[1])
                     xbmclog("get_lights_by_ids(light_ids={}) - get_label() for {} - Exception - {}".format(light_ids, lifx_light, str(error)))
     elif light_ids == ['']:
         found = {}
@@ -113,9 +112,9 @@ def get_lights_by_ids(light_ids=None):
                     # label is not set when initialized
                     lifx_light_label = lifx_light.get_label()
                 except WorkflowException as error:
-                    errStrings = ga.formatException()
-                    ga.sendExceptionData(errStrings[0])
-                    ga.sendEventData("Exception", errStrings[0], errStrings[1])
+                    #errStrings = ga.formatException()
+                    #ga.sendExceptionData(errStrings[0])
+                    #ga.sendEventData("Exception", errStrings[0], errStrings[1])
                     xbmclog("get_label({}) - Exception - {}".format(lifx_light_label,str(error)))
 
                 lifx_dic[lifx_light_label] = lifx_light
@@ -135,9 +134,9 @@ def get_lights_by_ids(light_ids=None):
                             # label is not set when initialized
                             lifx_light_label = lifx_light.get_label()
                         except WorkflowException as error:
-                            errStrings = ga.formatException()
-                            ga.sendExceptionData(errStrings[0])
-                            ga.sendEventData("Exception", errStrings[0], errStrings[1])
+                            #errStrings = ga.formatException()
+                            #ga.sendExceptionData(errStrings[0])
+                            #ga.sendEventData("Exception", errStrings[0], errStrings[1])
                             xbmclog("get_label({}) - Exception - {}".format(lifx_light_label,str(error)))
 
                         found[light_id] = lifx_light
@@ -158,9 +157,9 @@ def get_lights_by_group():
                 light_id = device.get_label()
                 found[light_id] = device
     except WorkflowException as error:
-        errStrings = ga.formatException()
-        ga.sendExceptionData(errStrings[0])
-        ga.sendEventData("Exception", errStrings[0], errStrings[1])
+        #errStrings = ga.formatException()
+        #ga.sendExceptionData(errStrings[0])
+        #ga.sendEventData("Exception", errStrings[0], errStrings[1])
         xbmclog("get_lights_by_group(group_id={}) - Exception - {}".format(group_id, str(error)))
 
     return get_lights_by_ids(device_ids)
@@ -175,9 +174,9 @@ def get_light_by_id(light_id=''):
             lights_cache.append(light)
             xbmclog("get_light_by_id(light_id={}) - Found new device".format(light_id))
     except WorkflowException as error:
-        errStrings = ga.formatException()
-        ga.sendExceptionData(errStrings[0])
-        ga.sendEventData("Exception", errStrings[0], errStrings[1])
+        #errStrings = ga.formatException()
+        #ga.sendExceptionData(errStrings[0])
+        #ga.sendEventData("Exception", errStrings[0], errStrings[1])
         xbmclog("get_light_by_id(light_id={}) - Exception - {}".format(light_id,str(error)))
 
     return light

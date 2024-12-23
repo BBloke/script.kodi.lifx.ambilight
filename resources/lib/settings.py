@@ -23,10 +23,7 @@ class Settings():
                 v = len(str(v).split(','))
             if k == "hue" or k == "readonce":
                 continue
-            try:
-                self.hue.ga.sendEventData("Settings", k, str(v), ni=1)
-            except Exception:
-                pass
+            
         self.readonce = True
 
 
@@ -46,18 +43,14 @@ class Settings():
         if value is not None:
             __addon__.setSetting(key, value)
             xbmclog("Setting {}={}".format(key, value))
-
+    
     # TODO: Remove duplicate - setSetting()
     def update(self, **kwargs):
         self.__dict__.update(**kwargs)
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             __addon__.setSetting(k, str(v))
             if k == "ambilight_group" or k == "theater_group" or k == "theater_subgroup" or k == "static_group":
                 v = len(str(v).split(','))
-            try:
-                self.hue.ga.sendEventData("Update", k, str(v))
-            except Exception:
-                pass
 
     def readxml(self):
         global __addon__

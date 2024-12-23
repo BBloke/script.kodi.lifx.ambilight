@@ -21,7 +21,7 @@ from ambilight_controller import AmbilightController
 from theater_controller import TheaterController
 from static_controller import StaticController
 
-from ga_client import GoogleAnalytics
+#from ga_client import GoogleAnalytics
 
 ev = Event()
 capture = xbmc.RenderCapture()
@@ -33,7 +33,7 @@ fmtRGBA = fmt == 'RGBA'
 class Service(object):
 
     startup = False
-    ga = None
+    #ga = None
     theater_controller = None
     ambilight_controller = None
     static_controller = None
@@ -53,13 +53,6 @@ class Service(object):
         xbmclog("Platform: {}".format(self.client_info.get_platform()))
         xbmclog("KODI Version: {}".format(xbmc.getInfoLabel('System.BuildVersion')))
         xbmclog("{} Version: {}".format(self.client_info.get_addon_name(), self.client_info.get_version()))
-
-        self.ga = GoogleAnalytics()
-
-        try:
-            self.ga.sendEventData("Application", "Startup")
-        except Exception as error:
-            xbmclog(error)
 
         self.connected = False
 
@@ -110,17 +103,14 @@ class Service(object):
 
         xbmclog("======== SERVICE SHUTDOWN ========")
 
-        if not self.ga:
-            self.ga = GoogleAnalytics()
-
         if self.startup:
             uptime = time.time() - self.startup
             uptime = int(uptime/60)
             xbmclog("Shutting down after {} minutes".format(uptime))
             # TODO - Change to custom metrics
-            self.ga.sendEventData("Metrics", "Uptime", eventValue=uptime)
+            #self.ga.sendEventData("Metrics", "Uptime", eventValue=uptime)
 
-        self.ga.sendEventData("Application", "Shutdown")
+        #self.ga.sendEventData("Application", "Shutdown")
 
     def update_controllers(self):
         if (self.ambilight_controller == None
@@ -214,9 +204,9 @@ class Service(object):
                     timeSinceLastPing = time.time() - self.lastMetricPing
                     if(timeSinceLastPing > 300):
                         self.lastMetricPing = time.time()
-                        ga = GoogleAnalytics()
+                        #ga = GoogleAnalytics()
                         # Keep the session alive
-                        ga.sendEventData("Playback", "Playing", "Video", None, 1)
+                        #ga.sendEventData("Playback", "Playing", "Video", None, 1)
                     try:
                         pixels = capture.getImage(200)
                         if len(pixels) > 0:
