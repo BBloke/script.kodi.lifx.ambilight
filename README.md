@@ -2,6 +2,8 @@
 
 A [Kodi](https://kodi.tv/) add-on for your [Lifx](http://www.lifx.com/) lights.
 
+This is a fork from someone else's work.  I've removed Google Analytics and changed the code a little to work with Kodi v21.  I have only tested the Theater Setup.  Kudos goes to the originator of the code.
+
 [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/sanghviharshit)
 
 ## Compatibility
